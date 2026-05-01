@@ -1,68 +1,61 @@
-import './Dashboard.css';
-import { useNavigate } from "react-router-dom";
+import "./Dashboard.css";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const username = localStorage.getItem("username") || "user.name123";
 
-    const handleLogout = () => {
-        localStorage.removeItem("isLoggedIn"); // remove login flag
-        navigate("/"); // go back to login page
-    };
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    navigate("/login");
+  };
 
-    return (
-        <div className="dashboard-page">
-            <header className="dashboard-header">
-                <div className="dashboard-logo">MyApp</div>
-                <nav className="dashboard-nav">
-                    <Link to="#">Home</Link>
-                    <Link to="#">Profile</Link>
-                    <Link to="#">Settings</Link>
-                    <button className="logout-btn" onClick={handleLogout}>
-                        Logout
-                    </button>
-                </nav>
-            </header>
+  return (
+    <div className="home-page">
+      <header className="top-nav">
+        <h1>Melody Room</h1>
 
-            <main className="dashboard-main">
-                <section className="welcome-section">
-                    <h1>Welcome back, Calvin 👋</h1>
-                    <p>Here’s a quick look at your dashboard today.</p>
-                </section>
+        <nav>
+          <Link className="active">For You</Link>
+          <Link>Following</Link>
+          <Link>Profile</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </nav>
+      </header>
 
-                <section className="stats-section">
-                    <div className="stat-card">
-                        <h3>Projects</h3>
-                        <p>12</p>
-                    </div>
-                    <div className="stat-card">
-                        <h3>Tasks</h3>
-                        <p>28</p>
-                    </div>
-                    <div className="stat-card">
-                        <h3>Messages</h3>
-                        <p>5</p>
-                    </div>
-                </section>
+      <main className="home-layout">
+        <section className="feed-section">
+          <input type="search" placeholder="Search posts..." className="search-bar" />
 
-                <section className="dashboard-content">
-                    <div className="activity-card">
-                        <h2>Recent Activity</h2>
-                        <ul>
-                            <li>Logged in successfully</li>
-                            <li>Updated profile information</li>
-                            <li>Created a new project</li>
-                            <li>Checked dashboard stats</li>
-                        </ul>
-                    </div>
+          <article className="post-card">
+            <h3>◎ Best concert I’ve been to so far!</h3>
+            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=900" />
+            <div className="post-meta">
+              <strong>{username}</strong>
+              <span>♡ 💬 ➤</span>
+            </div>
+            <p>This is a longer caption to show how posts appear in the feed.</p>
+          </article>
 
-                    <div className="profile-card">
-                        <h2>User Info</h2>
-                        <p><strong>Name:</strong> Calvin</p>
-                        <p><strong>Email:</strong> calvin@email.com</p>
-                        <p><strong>Status:</strong> Active</p>
-                    </div>
-                </section>
-            </main>
-        </div>
-    );
+          <article className="post-card">
+            <h3>◎ An honest headphone review</h3>
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900" />
+            <div className="post-meta">
+              <strong>{username}</strong>
+              <span>♡ 💬 ➤</span>
+            </div>
+            <p>This is a shorter post caption...</p>
+          </article>
+        </section>
+
+        <aside className="side-panel">
+          <h2>Comments</h2>
+          <p><strong>{username}</strong> This is a comment...</p>
+          <p><strong>musicfan42</strong> Love this post.</p>
+          <p><strong>beatmaker</strong> Great recommendation.</p>
+        </aside>
+      </main>
+    </div>
+  );
 }
