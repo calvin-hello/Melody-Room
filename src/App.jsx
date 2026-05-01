@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
+import Profile from "./Profile.jsx";
 import Splash from "./Splash.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
@@ -10,6 +11,7 @@ import "./App.css";
 
 export default function App() {
   return (
+
     <Routes>
       <Route path="/" element={<Splash />} />
       <Route path="/login" element={<Login />} />
@@ -20,6 +22,15 @@ export default function App() {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         }
       />

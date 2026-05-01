@@ -19,7 +19,7 @@ export default function Dashboard() {
         <nav>
           <Link className="active">For You</Link>
           <Link>Following</Link>
-          <Link>Profile</Link>
+          <Link to="/profile">Profile</Link>
           <button onClick={handleLogout}>Logout</button>
         </nav>
       </header>
