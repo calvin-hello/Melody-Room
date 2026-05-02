@@ -17,6 +17,7 @@ export default function Dashboard() {
         <h1>Melody Room</h1>
 
         <nav>
+          <Link to="/search">⌕</Link>
           <Link className="active">For You</Link>
           <Link>Following</Link>
           <Link to="/profile">Profile</Link>

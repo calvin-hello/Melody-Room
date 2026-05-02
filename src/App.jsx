@@ -6,6 +6,7 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Dashboard from "./Dashboard.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import Search from "./Search.jsx";
 
 import "./App.css";
 
@@ -31,6 +32,15 @@ export default function App() {
         element={
           <ProtectedRoute>
             <Profile />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/search"
+        element={
+          <ProtectedRoute>
+            <Search />
           </ProtectedRoute>
         }
       />
