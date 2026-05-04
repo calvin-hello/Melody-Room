@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Profile.css";
 import { Link } from "react-router-dom";
+import { Home, Music, Bookmark } from "lucide-react";
 
 export default function Profile() {
   const savedUser = JSON.parse(localStorage.getItem("user")) || {
@@ -57,10 +58,17 @@ export default function Profile() {
       </div>
 
 <div className="bottom-nav">
-   <Link to="/dashboard" className="nav-item">🏠</Link>
-  <div className="nav-item">🎵</div>
-  <div className="nav-item">🔖</div>
+  <Link to="/dashboard" className="nav-item">
+    <Home size={26} strokeWidth={2} />
+  </Link>
 
+  <div className="nav-item">
+    <Music size={26} strokeWidth={2} />
+  </div>
+
+  <div className="nav-item">
+    <Bookmark size={26} strokeWidth={2} />
+  </div>
   <div className="nav-item profile-icon">
     <img src={user.avatar} alt="pfp" />
   </div>

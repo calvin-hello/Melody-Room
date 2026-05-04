@@ -1,4 +1,3 @@
-/* PAGE */
 .profile-page {
   max-width: 420px;
   margin: 0 auto;
@@ -6,10 +5,8 @@
   color: white;
   background: #140021;
   min-height: 100vh;
-  
 }
 
-/* HEADER */
 .profile-header {
   text-align: center;
   margin-bottom: 15px;
@@ -24,7 +21,6 @@
   font-size: 0.8rem;
 }
 
-/* PROFILE CARD */
 .profile-card {
   background: linear-gradient(180deg, #6b21a8, #3b0764);
   padding: 16px;
@@ -32,7 +28,6 @@
   margin-bottom: 15px;
 }
 
-/* TOP ROW */
 .profile-top {
   display: flex;
   align-items: center;
@@ -40,20 +35,17 @@
   margin-bottom: 6px;
 }
 
-/* AVATAR */
 .avatar {
   width: 55px;
   height: 55px;
   border-radius: 50%;
 }
 
-/* RIGHT SIDE (stats + bio grouped) */
 .right-side {
   display: flex;
   flex-direction: column;
 }
 
-/* STATS */
 .stats {
   display: flex;
   gap: 25px;
@@ -72,13 +64,11 @@
   opacity: 0.8;
 }
 
-/* BIO */
 .bio {
   margin-top: 6px;
   font-size: 0.85rem;
 }
 
-/* BUTTON */
 .edit-btn {
   display: block;
   margin: 10px auto 0;
@@ -90,7 +80,6 @@
   cursor: pointer;
 }
 
-/* SECTION CARDS */
 .section {
   background: linear-gradient(180deg, #5a2a82, #3b0764);
   padding: 12px;
@@ -103,10 +92,9 @@
   margin-bottom: 10px;
 }
 
-/* TRACKS */
 .track-row {
   display: flex;
-  gap: 10px;
+  gap: 39px;
   overflow-x: auto;
 }
 
@@ -123,7 +111,6 @@
   margin-bottom: 5px;
 }
 
-/* MUSIC CARD */
 .music-card {
   display: flex;
   align-items: center;
@@ -140,7 +127,6 @@
   object-fit: cover;
 }
 
-/* POSTS */
 .posts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -159,7 +145,6 @@
   object-fit: cover;
 }
 
-/* overlay text */
 .post-overlay {
   position: absolute;
   bottom: 0;
@@ -170,7 +155,6 @@
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
-/* text-only posts */
 .post-text {
   background: #5a5a6b;
   height: 140px;
@@ -182,15 +166,13 @@
   font-size: 0.9rem;
 }
 
-
-/* BOTTOM NAV */
-/* BOTTOM NAV */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
 
   display: flex;
   justify-content: space-around;
@@ -199,7 +181,6 @@
   padding: 12px 0;
   z-index: 100;
 
-  /* GLASS EFFECT */
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -207,7 +188,6 @@
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* FADE ABOVE NAV */
 .bottom-nav::before {
   content: "";
   position: absolute;
@@ -224,10 +204,28 @@
   pointer-events: none;
 }
 
-/* ICONS */
 .nav-item {
-  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0.9;
+}
+
+.nav-item svg {
+  width: 26px;
+  height: 26px;
+  stroke: white;
+  stroke-width: 2;
+  transition: 0.2s ease;
+}
+
+.nav-item:hover svg {
+  stroke: #a855f7;
+  transform: scale(1.1);
+}
+
+.nav-item.active svg {
+  stroke: #a855f7;
 }
 
 .profile-icon img {
